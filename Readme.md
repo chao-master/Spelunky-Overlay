@@ -9,6 +9,8 @@ It shows details on your last Spelunky run!
 To make this work fully you will need the `jornalbgs.png`, `journalmons.png`, and `levelsketch.png` textures from the game's files.
 These are not include to help avoid copyright issues, however can be extracted using various fan made modding tools from the game's files.
 
+`jornalbgs.png` also needs to be resized, first crop it to 1000x1000, then resize to 640x640.
+
 You will also need "Tekton-Bold.otf", which is available from adobe (and other places) under their liscening terms.
 
 Place all these assets into the `static` folder.
