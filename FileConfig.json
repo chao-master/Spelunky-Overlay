@@ -1,0 +1,48 @@
+{
+    "offsets":{
+        "monsterKill": 665,
+        "monsterDeath": 721,
+        "trapDeaths": 777
+    },
+    "ordering":{
+        "monsters":[
+            "Snake", "Spider", "Bat", "Caveman", "Damsel", "Shopkeeper", "Frog", "Man Trap",
+            "Yeti", "UFO", "Hawk Man", "Skeleton", "Piranha", "Mummy", "Monkey", "Alien Lord",
+            "Ghost", "Giant Spider", "Jiang Shi", "Vampire", "Fire Frog", "The Tunnel map",
+            "Old Bitey", "Scarab", "Yeti King", "Alien", "Magma Man", "Vlad", "Scorpion", "Imp",
+            "Devil", "Killer Bee", "Anubis", "Queen Bee", "Bacterium", "Cobra", "Spinner Spider",
+            "Giant Frog", "Mammoth", "Alien Tank", "Tiki Man", "Scorpion Fly", "Snail", "Croc Man",
+            "Green Knight", "Worm Egg", "Worm Baby", "Alien Queen", "Black Knight",
+            "Golden Monkey", "Succubus", "Horse Head", "Ox Face", "Anubis II", "Olmec", "King Yama"
+        ],
+        "traps":[
+            "Spikes", "Arrow Trap", "Powder Box", "Boulder", "Tiki Trap", "Acid?", "Spring", "Mine",
+            "Turret?", "Forcefield?", "Crush Trap", "Ceiling Trap?", "Lava", "Spike Ball?"
+        ],
+        "items":[
+            "Climbing Gloves", "???",          "???",          "???",
+            "Parachute",       "Compass",      "Spring Shoes", "Pitchers Mitt",
+            "Crysknife",       "Sticky Paste", "Spectacles",   "Spike Boots",
+            "???",             "Hedjet",       "Kapala",   "???"
+        ],
+        "levelVariants": [
+            "Mines", "Jungle", "Ice Caves", "Temple", "Hell", "Worm", "Black Market", "Haunted Castle", "Mothership", "City Of Gold", "Olmec", "King Yama", "Completed", "Completed Hell"
+        ]
+    },
+    "killers":{
+        "firstMonster":1001,
+        "firstTrap":1100,
+        "otherValues":{
+            "1200":"Brain Damage",
+            "1201":"Long Fall",
+            "1202":"Blown up",
+            "1206":"Crushed",
+            "1208":"Abyss",
+            "1214":"Sacrificed",
+            "1213":"Old Age",
+            "1215":"Shopkeeper (shot)"
+        }
+    }
+
+
+}

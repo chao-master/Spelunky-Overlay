@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @font-face {
+                font-family: "Tekon-Bold";
+                src: url("Tekton-Bold.otf") format("opentype");
+            }
+
+            body {
+                margin: 0;
+                width: 332px;
+            }
+            .level-icon {
+                background-image: url("levelsketch.png");
+                width: 332px;
+                height: 190px;
+                background-position: -2px -5px;
+                position: absolute;
+                top:0;
+            }
+            .killer-icon {
+                position: absolute;
+                top: 90px;
+                filter: drop-shadow(2px 4px 6px white);
+                width: 128px;
+                height: 128px;
+                margin: 36px;
+            }
+            .killer-icon--TRAP {
+                background-image: url("journalbgs.png");
+                background-size: 653px;
+            }
+            .killer-icon--MONSTER {
+                background-image: url("journalmons.png");
+            }
+            .items {
+                display: flex;
+                flex-wrap: wrap;
+                position: absolute;
+                top: 190px;
+            }
+            .items .icon {
+                background-image: url("journalitems.png");
+                width: 128px;
+                height: 128px;
+            }
+            .corner-text {
+                font-family: Tekon-Bold;
+                font-size: 32px;
+                position: absolute;
+                right: 5px;
+                bottom: 5px;
+                display: inline-block;
+                text-shadow: white 1px 1px 2px,white -1px -1px 2px;
+                z-index: 200;
+                text-align: right;
+                white-space: nowrap;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="level-icon">
+            <div class="corner-text"></div>
+        </div>
+        <div class="killer-icon">
+            <div class="corner-text"></div>
+        </div>
+        <!-- <div class="items">
+            <div class="icon"></div>
+        </div> -->
+
+        <script>
+            const levelIcon = document.querySelector(".level-icon");
+            const killerIcon = document.querySelector(".killer-icon");
+            const items = document.querySelector(".items");
+            let waitFor = 0;
+
+            function backPos(pos){
+                if (!pos) return "";
+                return `-${pos[0]}px -${pos[1]}px`;
+            }
+
+            function connect(){
+                const ws = new WebSocket("ws://"+location.host);
+                ws.addEventListener("open",(e)=>{
+                    console.log("connection established");
+                    waitFor = 0;
+                })
+                ws.addEventListener("message",(e)=>{
+                    const {plays,wins,deaths,score,level,killer,items} = JSON.parse(e.data);
+
+                    levelIcon.style.backgroundPosition = backPos(level.image);
+                    levelIcon.querySelector(".corner-text").innerHTML = `${level.code.join("-")} </br> ${level.name}`;
+                    
+                    killerIcon.style.backgroundPosition = backPos(killer.image);
+                    killerIcon.className = `killer-icon killer-icon--${killer.type}`
+                    killerIcon.querySelector(".corner-text").innerHTML = killer.name
+                })
+                ws.addEventListener("close",(e)=>{
+                    console.warn("Connection lost")
+                    setTimeout(connect,1000);
+                })
+            }
+
+            connect();
+        </script>
+
+
+    </body>
+</html>
